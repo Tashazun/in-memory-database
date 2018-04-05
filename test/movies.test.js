@@ -54,6 +54,29 @@ describe('making data store', () => {
             _id: reel[2]._id,
             name: 'Witch',
             genre: 'Horror'
-        });
+        });    
     });
+
+    it('get null if no id match', () => {
+        store.save(reel);
+        const filmId = 'fake Id number';
+        const getFilm = store.get(filmId);
+        assert.equal(getFilm, null);
+    });
+
+    it('getAll', () => {
+        const projector = store.save(reel);
+        const allFilms = store.getAll(projector);
+        assert.deepEqual(allFilms, store.filmFestival);
+    });
+
+    it('get empty array if array has no length', () => {
+        const projector = store.save([]);
+        const noFilms = store.getAll(projector);
+        assert.deepEqual(noFilms, store.filmFestival);
+    });
+
+    it('remove', () => {
+        
+    })
 });
