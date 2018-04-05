@@ -52,7 +52,7 @@ describe('making data store', () => {
         const getFilm = store.get(filmId);
         assert.deepEqual(getFilm, {
             _id: reel[2]._id,
-            name: 'Bitch',
+            name: 'Witch',
             genre: 'Horror'
         });
     });
