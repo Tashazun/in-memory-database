@@ -76,7 +76,17 @@ describe('making data store', () => {
         assert.deepEqual(noFilms, store.filmFestival);
     });
 
-    it('remove', () => {
-        
-    })
+    it('remove true', () => {
+        const projector = store.save(reel);
+        const filmId = projector[2]._id;
+        const removeFilm = store.remove(filmId);
+        assert.deepEqual(removeFilm, { remove: true });
+    });
+
+    it('remove false', () => {
+        store.save(reel);
+        const filmId = 'fake id number';
+        const removeFilm = store.remove(filmId);
+        assert.deepEqual(removeFilm, { remove: false });
+    });
 });
