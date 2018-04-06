@@ -1,4 +1,4 @@
-const Ids = require('ids');
+const Ids = require('ids'); // eslint-disable-line
 const Movies = require('../lib/movies');
 const assert = require('assert');
 
